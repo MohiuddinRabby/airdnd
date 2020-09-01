@@ -3,9 +3,9 @@ import Search from "../Search/Search";
 
 const Home = () => {
   return (
-    <div>
+    <React.Fragment>
       <Search></Search>
-    </div>
+    </React.Fragment>
   );
 };
 
