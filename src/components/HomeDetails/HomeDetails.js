@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Cart from "../Cart/Cart";
 
 const HomeDetails = () => {
   const { keys } = useParams();
@@ -39,8 +40,9 @@ const HomeDetails = () => {
           </div>
         </div>
         <div className="col-md-5">
+          <h1>Cart info</h1>
           <h4>Price: ${homeDetails.price} / night</h4>
-          <h1>Cart info will be here</h1>
+          <Cart></Cart>
         </div>
       </div>
     </div>

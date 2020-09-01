@@ -4,8 +4,12 @@ import Result from "../Result/Result";
 import "./Search.css";
 import Banner from "../Banner/Banner";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { InfoContext } from "../../global/InfoContext";
 const Search = () => {
   const { handleSubmit, register, errors } = useForm();
+  const [travelInfo, setTravelInfo] = useContext(InfoContext);
+  console.log('travel context',travelInfo);
   const [load, setLoad] = useState(true);
   const [location, setLocation] = useState("");
   const [checkin, setCheckin] = useState("");
@@ -15,6 +19,7 @@ const Search = () => {
     const newInfo = [
       { location: location, chekin: checkin, checkout: checkout, guest: guest },
     ];
+    setTravelInfo(newInfo);
     console.log(newInfo);
     setLocation("");
     setCheckout("");
