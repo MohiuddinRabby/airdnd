@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useState } from "react";
 import Axios from "axios";
+import Cart from "../Cart/Cart";
 const ResultDataDetails = () => {
   const { keys } = useParams();
   const [details, setDetails] = useState({});
@@ -51,7 +52,7 @@ const ResultDataDetails = () => {
           </div>
         </div>
         <div className="col-md-5">
-          <h1>Cart info</h1>
+          <Cart></Cart>
         </div>
       </div>
     </div>

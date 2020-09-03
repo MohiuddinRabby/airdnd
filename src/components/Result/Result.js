@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import loader from "../../img/planeOne.gif";
 import Axios from "axios";
 import ResultData from "../ResultData/ResultData";
+import { useContext } from "react";
 const Result = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);

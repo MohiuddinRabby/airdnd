@@ -3,21 +3,22 @@ import { useState } from "react";
 import "./Search.css";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import { InfoContext } from "../../global/InfoContext";
 const Search = () => {
   const { handleSubmit, register, errors } = useForm();
-  //   const [travelInfo, setTravelInfo] = useContext(InfoContext);
-  //   console.log("travel context", travelInfo);
   const [location, setLocation] = useState("");
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [guest, setGuest] = useState(1);
+  const [info, setInfo] = useContext(InfoContext);
   let results = useHistory();
   const handleForm = () => {
     const newInfo = [
       { location: location, chekin: checkin, checkout: checkout, guest: guest },
     ];
-    // setTravelInfo(newInfo);
-    console.log(newInfo);
+    setInfo(newInfo);
+    // console.log(newInfo);
     setLocation("");
     setCheckout("");
     setCheckin("");
