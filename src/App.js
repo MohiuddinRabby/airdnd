@@ -5,24 +5,31 @@ import Nav from "./components/Nav/Nav";
 import Result from "./components/Result/Result";
 import ResultDataDetails from "./components/ResultDataDetails/ResultDataDetails";
 import { InfoProvider } from "./global/InfoContext";
+import Login from "./components/Login/Login";
+import { AuthProvider } from "./global/useAuth";
 const App = () => {
   return (
     <React.Fragment>
       <Router>
-        <InfoProvider>
-          <Nav></Nav>
-          <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route path="/results">
-              <Result></Result>
-            </Route>
-            <Route path="/house-details/:keys">
-              <ResultDataDetails></ResultDataDetails>
-            </Route>
-          </Switch>
-        </InfoProvider>
+        <AuthProvider>
+          <InfoProvider>
+            <Nav></Nav>
+            <Switch>
+              <Route exact path="/">
+                <Home></Home>
+              </Route>
+              <Route path="/results">
+                <Result></Result>
+              </Route>
+              <Route path="/house-details/:keys">
+                <ResultDataDetails></ResultDataDetails>
+              </Route>
+              <Route path="/login">
+                <Login></Login>
+              </Route>
+            </Switch>
+          </InfoProvider>
+        </AuthProvider>
       </Router>
     </React.Fragment>
   );

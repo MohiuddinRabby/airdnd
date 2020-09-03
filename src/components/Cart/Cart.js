@@ -4,7 +4,7 @@ import { InfoContext } from "../../global/InfoContext";
 
 const Cart = () => {
   const [info, setInfo] = useContext(InfoContext);
-//   console.log("from cart", info);
+  //   console.log("from cart", info);
   return (
     <div className="card">
       <div className="card-body">
@@ -14,6 +14,9 @@ const Cart = () => {
             <h5>Check-in-date: {infos.chekin}</h5>
             <h5>Check-out-date: {infos.checkout}</h5>
             <h5>Guest: {infos.guest}</h5>
+            <button className="btn btn-danger btn-sm">
+              Confirm Reservation
+            </button>
           </div>
         ))}
       </div>
