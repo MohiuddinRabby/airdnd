@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./Search.css";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 const Search = () => {
   const { handleSubmit, register, errors } = useForm();
   //   const [travelInfo, setTravelInfo] = useContext(InfoContext);
@@ -10,6 +11,7 @@ const Search = () => {
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [guest, setGuest] = useState(1);
+  let results = useHistory();
   const handleForm = () => {
     const newInfo = [
       { location: location, chekin: checkin, checkout: checkout, guest: guest },
@@ -20,6 +22,7 @@ const Search = () => {
     setCheckout("");
     setCheckin("");
     setGuest(1);
+    results.push("/results");
   };
   return (
     <header id="banner">
