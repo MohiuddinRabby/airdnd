@@ -63,7 +63,7 @@ const Auth = () => {
   const [singInUser, setSingInUser] = useState(null);
   const singInWithGoole = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase
+    return firebase
       .auth()
       .signInWithPopup(provider)
       .then((result) => {

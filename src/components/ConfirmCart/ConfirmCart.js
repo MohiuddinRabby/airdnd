@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const ConfirmCart = () => {
-    return (
-        <div>
-            <h1>this is confirm cart</h1>
-        </div>
-    );
+  return (
+    <div className="container">
+      <h1>confirm info and payment option on progress...</h1>
+    </div>
+  );
 };
 
 export default ConfirmCart;
