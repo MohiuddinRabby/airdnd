@@ -6,7 +6,8 @@ import Result from "./components/Result/Result";
 import ResultDataDetails from "./components/ResultDataDetails/ResultDataDetails";
 import { InfoProvider } from "./global/InfoContext";
 import Login from "./components/Login/Login";
-import { AuthProvider } from "./global/useAuth";
+import { AuthProvider, PrivateRoute } from "./global/useAuth";
+import ConfirmCart from "./components/ConfirmCart/ConfirmCart";
 const App = () => {
   return (
     <React.Fragment>
@@ -27,6 +28,9 @@ const App = () => {
               <Route path="/login">
                 <Login></Login>
               </Route>
+              <PrivateRoute path="/confirm-order">
+                <ConfirmCart></ConfirmCart>
+              </PrivateRoute>
             </Switch>
           </InfoProvider>
         </AuthProvider>

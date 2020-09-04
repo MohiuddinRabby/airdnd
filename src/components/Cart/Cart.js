@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { InfoContext } from "../../global/InfoContext";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [info, setInfo] = useContext(InfoContext);
@@ -14,9 +15,9 @@ const Cart = () => {
             <h5>Check-in-date: {infos.chekin}</h5>
             <h5>Check-out-date: {infos.checkout}</h5>
             <h5>Guest: {infos.guest}</h5>
-            <button className="btn btn-danger btn-sm">
+            <Link to="/confirm-order" className="btn btn-danger btn-sm">
               Confirm Reservation
-            </button>
+            </Link>
           </div>
         ))}
       </div>

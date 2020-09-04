@@ -6,6 +6,13 @@ import { useState } from "react";
 import { createContext } from "react";
 import { useContext } from "react";
 import { useEffect } from "react";
+import {
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation,
+} from "react-router-dom";
 firebase.initializeApp(firebaseConfig);
 
 //auth context
@@ -20,6 +27,28 @@ export const AuthProvider = (props) => {
 //auth hook
 export const useAuth = () => {
   return useContext(AuthContext);
+};
+//
+//private route
+export const PrivateRoute = ({ children, ...rest }) => {
+  const auth = useAuth();
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        auth.singInUser ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
 };
 //
 const getUserInfo = (user) => {
