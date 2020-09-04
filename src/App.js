@@ -8,7 +8,15 @@ import { InfoProvider } from "./global/InfoContext";
 import Login from "./components/Login/Login";
 import { AuthProvider, PrivateRoute } from "./global/useAuth";
 import ConfirmCart from "./components/ConfirmCart/ConfirmCart";
+import { loadStripe } from "@stripe/stripe-js";
+import {
+  CardElement,
+  Elements,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
 const App = () => {
+  const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
   return (
     <React.Fragment>
       <Router>
@@ -28,8 +36,11 @@ const App = () => {
               <Route path="/login">
                 <Login></Login>
               </Route>
+
               <PrivateRoute path="/confirm-order">
-                <ConfirmCart></ConfirmCart>
+                <Elements stripe={stripePromise}>
+                  <ConfirmCart></ConfirmCart>
+                </Elements>
               </PrivateRoute>
             </Switch>
           </InfoProvider>
