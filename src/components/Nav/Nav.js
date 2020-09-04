@@ -11,9 +11,13 @@ const Nav = () => {
       <div className="m-auto">
         <img src={logo} alt="logo" style={{ width: "40px" }} />
         {auth.singInUser ? (
-          <span className="px-5">{auth.singInUser.name}</span>
+          <Link to="/login">
+            <span className="px-5">{auth.singInUser.name}</span>
+          </Link>
         ) : (
-          <Link to="/login" className="px-5">Login</Link>
+          <Link to="/login" className="px-5">
+            Login
+          </Link>
         )}
       </div>
     </nav>
