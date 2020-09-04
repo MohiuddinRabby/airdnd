@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 const Login = () => {
   let history = useHistory();
   const auth = Auth();
-  // console.log(auth.singInUser);
+  console.log(auth.singInUser);
   const handleSingIn = () => {
     auth.singInWithGoole().then((res) => {
       //to go the url where it came from with :slug
@@ -18,9 +18,22 @@ const Login = () => {
   };
   return (
     <div className="container text-center py-5">
-      <h1 className="text-danger">SignIn Here</h1>
+      <h1 className="text-danger">{auth.singInUser ? "Signout" : "SignIn"}</h1>
+      <hr />
       {auth.singInUser ? (
-        <button onClick={auth.signOutGoogle}>Signout</button>
+        <div>
+          <div>
+            <img
+              src={auth.singInUser.photo}
+              style={{ width: "100px", borderRadius: "50px" }}
+              alt=""
+            />
+          </div>
+          <br/>
+          <button onClick={auth.signOutGoogle} className="btn btn-danger">
+            Signout
+          </button>
+        </div>
       ) : (
         <div className="card">
           <div className="card-body">
